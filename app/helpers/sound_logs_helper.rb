@@ -1,0 +1,2 @@
+module SoundLogsHelper
+end

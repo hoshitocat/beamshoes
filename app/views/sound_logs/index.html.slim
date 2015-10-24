@@ -1,0 +1,19 @@
+h1 Listing sound_logs
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @sound_logs.each do |sound_log|
+      tr
+        td = link_to 'Show', sound_log
+        td = link_to 'Edit', edit_sound_log_path(sound_log)
+        td = link_to 'Destroy', sound_log, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Sound log', new_sound_log_path
