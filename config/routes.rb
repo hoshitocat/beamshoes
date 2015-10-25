@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  root 'musics#dashboard'
+
   resources :sound_logs, only: %i(new create) do
     post :bulk_create, on: :collection
   end
 
-  resources :sound_logs, only: %i(create)
+  resources :musics do
+    get :dashboard, on: :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

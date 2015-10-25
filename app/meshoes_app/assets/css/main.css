@@ -1,0 +1,409 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Bolt - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+ 
+/* FONTS */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
+
+/* OVERALL ASPECT */
+
+body {
+  background-color: #f2f2f2;
+    font-weight: 300;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+
+    font-family: 游ゴシック, YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-size: 1.6rem;
+    color: rgb(0, 0, 0);
+    position: relative;
+    text-rendering: optimizelegibility;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.mt {
+	margin-top: 40px;
+}
+
+/* Links */
+a {
+    color: #444;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color #444;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+/* Bootstrap Modifications */
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+	font-weight: 800;
+	font-size: 14px;
+  width: 100%;
+	background-color: #eee;
+  z-index: 9999;
+}
+
+.nav__list-wrapper {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__list {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.nav__list--link {
+  width: 60px;
+}
+
+.nav-default .nav-nav > .active > a, .nav-default .nav-nav > .active > a:hover, .nav-default .nav-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #74cfae;
+}
+
+.nav-brand {
+	font-size: 60px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.btn-theme {
+	color: #ffffff;
+	background-color: #74cfae;
+	border-color: transparent;
+}
+
+.btn {
+	padding: 10px 30px;
+	margin-bottom: 0;
+	font-size: 18px;
+	border: 5px solid transparent;
+	border-radius: 0px;
+}
+
+.lead {
+	letter-spacing: 1px;
+}
+
+/* hello */
+#hello {
+  position: relative;
+	width: 100%;
+  height: 100%;
+  background: url(../img/bg_top.png) no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.hello {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 200px;
+}
+
+.hello-logo-wrap {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin: auto;
+}
+
+.hello-logo {
+	width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+.hello-sub-title {
+	color: #fff;
+	font-weight: 500;
+  font-size: .8em;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* session_list */
+#session_list {
+  padding-top: 45px;
+}
+
+.list-group-item__link {
+  display: block;
+  width: 100%;
+  padding: 10px 30px 10px 0;
+}
+
+.list-group-item__link:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  margin: auto 0;
+  background: url(../img/arrow.png) no-repeat;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+}
+
+.list-group-item__link__title {
+  margin-bottom: 5px;
+}
+
+.list-group-item__link__date {
+  font-size: 0.8em;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+#session-rec {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.session-rec {
+  margin-top: 45px;
+  padding: 20px;
+}
+
+.session-rec-bg {
+  position: fixed;
+  background: url(../img/bg_play.png) no-repeat center;
+  background-size: 150%;
+  overflow: hidden;
+  padding-top: 45px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.session-rec__music-name {
+  margin-top: 30px;
+  color: #444;
+  text-align: center;
+  font-weight: bold;
+}
+
+.session-rec__music-thumb {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: url(../img/bg_square.png) no-repeat center;
+  background-size: cover;
+  margin: auto;
+}
+
+.session-rec__music-thumb__logo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 100px;
+}
+
+#session-rec-control {
+  position: fixed;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.session-rec-control {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+}
+
+.session-rec-control__prev {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(../img/prev.png) no-repeat center;
+  background-size: cover;
+  margin: 0 20px 24px 0;
+}
+
+.session-rec-control__play {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: url(../img/play.png) no-repeat center;
+  background-size: cover;
+}
+
+.session-rec-control__next {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(../img/next.png) no-repeat center;
+  background-size: cover;
+  margin: 0 0 24px 20px;
+}
+
+/* Green */
+#green {
+	background-color: #74cfae;
+	padding-top: 50px;
+	margin-bottom: 0px;
+}
+
+#green h3 {
+	color: white;
+	font-weight: 400;
+	margin-bottom: 35px;
+}
+
+#green p {
+	color: white;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+/* Skills */
+#skills {
+	background-color: #4e4e4e;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 50px;
+}
+
+#skills h3 {
+	color: white;
+}
+
+#skills p {
+	color: white;
+	font-weight: 400;
+}
+
+/* Social Links */
+#social {
+	width: 100%;
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
+#social i {
+	font-size: 50px;
+	color: #74cfae;
+}
+
+#social .col-md-3:hover {
+	background-color: #f5f5f5;
+}
+
+#social .col-md-3 {
+	padding:30px;
+}
+
+/* Footer */
+#footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.bottom-btn-wrapper {
+  display: table;
+  table-layout:fixed;
+  width: 100%;
+}
+
+.bottom-btn-wrapper .bottom-btn {
+  display: table-cell;
+  vertical-align: middle;
+  height: 55px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+
+.bottom-btn-wrapper .bottom-btn:last-child {
+  border: none;
+}
+
+/* Image Opacity */
+.grid img {
+    opacity: .7;
+}
+.grid img:hover {
+    opacity: 1;
+}
