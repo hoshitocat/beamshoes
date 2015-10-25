@@ -25,7 +25,7 @@ class CreateMusicJob < ActiveJob::Base
     flist_str = make_sliced_file(flist).join(" ")
 
     # ファイルの合成
-    filepath = "public/musics/" + Time.current.strftime("%Y%m%d%H%M%S") + ".mp3"
+    filepath = "public/audios/" + Time.current.strftime("%Y%m%d%H%M%S") + ".mp3"
     cmd = "sox -m #{flist_str} #{Rails.root}/#{filepath}"
     result = `#{cmd}`
 
