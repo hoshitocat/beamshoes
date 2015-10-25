@@ -13,3 +13,9 @@ SoundLog.create([
   {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 30)},
   {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 40)}
 ])
+
+Sound.create([
+  {name: "サイレント", filepath: "public/sounds/silent.mp3"},
+  {name: "シンバル", filepath: "public/sounds/cymbals.mp3"},
+  {name: "最低", filepath: "public/sounds/saitei.mp3"}
+])
