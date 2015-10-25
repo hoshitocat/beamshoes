@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+SoundLog.create([
+  {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 00)},
+  {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 10)},
+  {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 20)},
+  {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 30)},
+  {user_id: 1, sound_id: 1, detect_time: Time.new(2015, 10, 24, 00, 00, 40)}
+])
