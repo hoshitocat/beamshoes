@@ -11,8 +11,7 @@ table
     - @musics.each do |music|
       tr
         td = link_to 'Show', music
-        td = link_to 'Edit', edit_music_path(music)
-        td = link_to 'Destroy', music, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = music.created_at
 
 br
 
