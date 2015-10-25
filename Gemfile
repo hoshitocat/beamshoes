@@ -13,6 +13,7 @@ gem 'sidekiq'
 gem 'execjs'
 gem 'therubyracer'
 gem 'figaro'
+gem 'sinatra', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
