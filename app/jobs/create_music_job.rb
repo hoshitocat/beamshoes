@@ -22,11 +22,12 @@ class CreateMusicJob < ActiveJob::Base
     end
     flist_str = flist.join(" ")
 
-    fname = Time.current.strftime("%Y%m%d%H%M%S")
-    cmd = "sox #{flist_str} #{Rails.root}/public/musics/#{fname}.mp3"
+    filepath = "public/musics/" + Time.current.strftime("%Y%m%d%H%M%S") + ".mp3"
+    cmd = "sox #{flist_str} #{Rails.root}/#{filepath}"
     result = `#{cmd}`
 
     if $?
+      Music.create(user_id: sound_log.user_id, filepath: filepath)
       return # success
     end
     return # error
