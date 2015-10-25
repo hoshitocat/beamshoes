@@ -20,10 +20,13 @@ class CreateMusicJob < ActiveJob::Base
     sounds.each do |log|
       flist[log.detect_time - start_time] = Sound::SOUND_FILE_PATH
     end
-    flist_str = flist.join(" ")
 
+    # 合成するファイルを配列の{index}秒だけずらした一時ファイルを生成する
+    flist_str = make_sliced_file(flist).join(" ")
+
+    # ファイルの合成
     filepath = "public/musics/" + Time.current.strftime("%Y%m%d%H%M%S") + ".mp3"
-    cmd = "sox #{flist_str} #{Rails.root}/#{filepath}"
+    cmd = "sox -m #{flist_str} #{Rails.root}/#{filepath}"
     result = `#{cmd}`
 
     if $?
@@ -31,5 +34,23 @@ class CreateMusicJob < ActiveJob::Base
       return # success
     end
     return # error
+  end
+
+  # return file path list
+  def make_sliced_file(flist)
+    flist_sliced = []
+    flist.each_with_index do |v, i|
+      # 開始時のファイルはスライスしない
+      if i == 0
+        flist_sliced << v
+      else
+        tmp_file = "/tmp/sound_#{i}.mp3"
+        silent_files = (Sound::SILENT_FILE_PATH + " ") * i
+        cmd = "sox #{silent_files} #{v} #{tmp_file}"
+        result = `#{cmd}`
+        flist_sliced << tmp_file
+      end
+    end
+    return flist_sliced
   end
 end
