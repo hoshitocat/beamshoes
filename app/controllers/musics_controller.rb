@@ -10,6 +10,9 @@ class MusicsController < ApplicationController
   # GET /musics/1
   # GET /musics/1.json
   def show
+    @music = Music.find(params[:id])
+    # ファイルパスをroutingに合わせる
+    @music.filepath.slice!(0, 14)
   end
 
   # GET /musics/new
