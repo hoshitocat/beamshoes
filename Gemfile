@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
@@ -22,9 +21,6 @@ gem 'jquery-ui-rails'
 gem 'less-rails'
 gem 'coffee-rails'
 gem 'activerecord-import'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 gem 'unicorn'

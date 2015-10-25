@@ -6,15 +6,30 @@ class CreateMusicJob < ActiveJob::Base
     # recordingが終了するまでsleep
     sleep(SoundLog::RECORDING_TIME)
 
-    # find sound log
-    sounds = SoundLog.where("detect_time >= ?", sound_log.detect_time)
+    # find target sound log
+    sounds = SoundLog.where(
+      user_id: sound_log.user_id,
+      detect_time: [sound_log.detect_time..sound_log.detect_time + SoundLog::RECORDING_TIME]
+    )
 
-    # create music file
-    filelist = []
-    sounds.each do |k, v|
-      puts k
+    # 無音ファイルで初期化
+    flist = Array.new(SoundLog::RECORDING_TIME, Sound::SILENT_FILE_PATH)
+
+    # 1秒ごとに再生するファイルのパスを格納した配列を作成する
+    start_time = sound_log.detect_time
+    sounds.each do |log|
+      flist[log.detect_time - start_time] = Sound::SOUND_FILE_PATH
     end
+    flist_str = flist.join(" ")
 
+    filepath = "public/musics/" + Time.current.strftime("%Y%m%d%H%M%S") + ".mp3"
+    cmd = "sox #{flist_str} #{Rails.root}/#{filepath}"
+    result = `#{cmd}`
+
+    if $?
+      Music.create(user_id: sound_log.user_id, filepath: filepath)
+      return # success
+    end
+    return # error
   end
-
 end
