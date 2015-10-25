@@ -1,6 +1,12 @@
 class SoundLogsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
+  def index
+  end
+
+  def new
+  end
+
   def create
     @sound_log = SoundLog.new(create_params)
 
@@ -17,9 +23,20 @@ class SoundLogsController < ApplicationController
     end
   end
 
+  def bulk_create
+    SoundLog.bulk_create(bulk_create_params)
+    redirect_to :back
+  end
+
   private
 
   def create_params
     params.permit(:user_id, :sound_id, :detect_time)
+  end
+
+  def bulk_create_params
+    strong_params = params.permit(:user_id, :sound_id, :detect_time)
+    strong_params[:detect_time] = strong_params[:detect_time].split(',')
+    strong_params
   end
 end

@@ -1,9 +1,0 @@
-= form_for @sound_log do |f|
-  - if @sound_log.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@sound_log.errors.count, "error")} prohibited this sound_log from being saved:"
-      ul
-        - @sound_log.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit

@@ -1,5 +1,26 @@
-h1 New sound_log
+= form_tag bulk_create_sound_logs_path, method: :post do
+  = hidden_field_tag :user_id, 1
+  = select_tag :sound_id, options_for_select([["ベル", 1], ["足音", 2]]), class: 'form-control'
+  = hidden_field_tag :detect_time, '', id: 'detect_time_form'
+  div#head_margin
+  .text-center
+    = button_tag type: :button, id: 'play_button', class: 'btn btn-primary' do
+      = fa_icon 'play 4x'
+  br
+  .text-center.disabled
+    = button_tag id: 'upload_btn', class: 'btn btn-default', disabled: true do
+      = fa_icon 'upload'
+      = 'Upload'
 
-== render 'form'
+coffee:
+  $('#play_button').on 'click', ->
+    if $('#upload_btn').prop('disabled')
+      $('#upload_btn').prop('disabled', false)
 
-= link_to 'Back', sound_logs_path
+    detect_times = $('#detect_time_form').val() + Math.floor( $.now() / 1000 ) + ','
+    $('#detect_time_form').val( detect_times )
+
+scss:
+  div#head_margin {
+    margin-top: 150px;
+  }
