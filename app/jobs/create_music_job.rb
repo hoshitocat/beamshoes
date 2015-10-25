@@ -3,13 +3,6 @@ class CreateMusicJob < ActiveJob::Base
 
   def perform(sound_log)
 
-    # 演奏開始以外のログのときはジョブを終了
-    if SoundLog.where(
-      detect_time: [sound_log.detect_time - SoundLog::RECORDING_TIME..sound_log.detect_time]
-    ).exists?
-      return
-    end
-
     # recordingが終了するまでsleep
     sleep(SoundLog::RECORDING_TIME)
 

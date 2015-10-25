@@ -6,6 +6,10 @@ class SoundLogsController < ApplicationController
 
     respond_to do |format|
       if @sound_log.save
+        if SoundLog.can_enqueue?(@sound_log)
+          CreateMusicJob.perform_later(@sound_log)
+        end
+
         format.json { render json: { status: :created, location: @sound_log } }
       else
         format.json { render json: @sound_log.errors, status: :unprocessable_entity }

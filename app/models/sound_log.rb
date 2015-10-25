@@ -2,14 +2,17 @@ class SoundLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :sound
 
-  after_create :enqueue_job
-
   RECORDING_TIME = 10
 
   private
+    # ジョブをキューに入れるかどうかの判定のみを行うメソッド
+    def self.can_enqueue?(sound_log)
+      if self.where(
+        detect_time: [sound_log.detect_time - self::RECORDING_TIME..sound_log.detect_time]
+      ).exists?
+        return false
+      end
 
-  def enqueue_job?
-    # TODO: ジョブをキューに入れるかどうかの判定のみを行うメソッド
-    # したがって、返り値は必ずbooleanで!!
-  end
+      return true
+    end
 end
