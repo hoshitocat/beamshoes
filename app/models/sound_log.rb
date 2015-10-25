@@ -4,6 +4,8 @@ class SoundLog < ActiveRecord::Base
 
   after_create :enqueue_job
 
+  RECORDING_TIME = 10
+
   private
 
   def enqueue_job?
